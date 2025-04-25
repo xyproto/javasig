@@ -26,6 +26,9 @@ func Is(line string) bool {
 	if !strings.HasSuffix(line, "{") && !strings.HasSuffix(line, ";") {
 		return false
 	}
+	if strings.Contains(line, "=") {
+		return false
+	}
 	open := strings.Index(line, "(")
 	close := strings.Index(line, ")")
 	if open == -1 || close == -1 || open > close {
