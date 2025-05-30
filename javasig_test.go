@@ -22,6 +22,7 @@ func TestIsJavaFunc(t *testing.T) {
 		{"public static void main(String[] args) {", true},
 		{"  static <K,V> Map<K,V> createMap();", true},
 		{"Random rnd = new Random();", false},
+		{"} catch (InterruptedException e) {", false},
 	}
 	for _, c := range cases {
 		actual := Is(c.line)
